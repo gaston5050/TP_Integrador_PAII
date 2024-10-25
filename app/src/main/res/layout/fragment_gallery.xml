@@ -1,22 +1,216 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content">
+
+        <!-- Pregunta 1 -->
+        <TextView
+            android:text="¿Está trabajando actualmente?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_si_trabaja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sí" />
+            <RadioButton
+                android:id="@+id/radio_no_trabaja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- Pregunta 2 -->
+        <TextView
+            android:text="Sexo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_masculino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masculino" />
+            <RadioButton
+                android:id="@+id/radio_femenino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Femenino" />
+            <RadioButton
+                android:id="@+id/radio_otro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otro" />
+        </RadioGroup>
+
+        <!-- Pregunta 3 -->
+        <TextView
+            android:text="¿Qué nivel de estudios alcanzó?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_nivel_estudios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/nivel_estudios" />
+
+        <!-- Pregunta 4 -->
+        <TextView
+            android:text="Edad:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_edad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/rangos_edad" />
+
+        <!-- Pregunta 5 -->
+        <TextView
+            android:text="¿Cuántos trabajos tiene?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_un_trabajo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+            <RadioButton
+                android:id="@+id/radio_mas_trabajos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">1" />
+        </RadioGroup>
+
+        <!-- Pregunta 6 -->
+        <TextView
+            android:text="¿Percibe remuneración por su trabajo?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_si_remuneracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sí" />
+            <RadioButton
+                android:id="@+id/radio_no_remuneracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No" />
+        </RadioGroup>
+
+        <!-- Pregunta 7 -->
+        <TextView
+            android:text="¿Qué tipo de relación contractual tiene con su trabajo?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_relacion_contractual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/tipo_relacion_contractual" />
+
+        <!-- Pregunta 8 -->
+        <TextView
+            android:text="¿En qué rubro trabaja?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_rubro_trabajo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/rubros_trabajo" />
+
+        <!-- Pregunta 9 -->
+        <TextView
+            android:text="¿Cuántas horas semanales dedica a esta tarea?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_horas_trabajo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/horas_trabajo" />
+
+        <!-- Pregunta 10 -->
+        <TextView
+            android:text="¿Hace cuánto tiempo se desempeña en esta tarea?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_tiempo_trabajo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/tiempo_trabajo" />
+
+        <!-- Pregunta 11 -->
+        <TextView
+            android:text="¿Cuál es su rango de salario mensual bruto?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner_salario_bruto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/rango_salario" />
+
+        <!-- Pregunta 12 -->
+        <TextView
+            android:text="¿Cree que su salario es justo en comparación con el de sus colegas de diferente género que realizan el mismo trabajo?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_si_justo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sí" />
+            <RadioButton
+                android:id="@+id/radio_no_justo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No" />
+            <RadioButton
+                android:id="@+id/radio_no_sabe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No lo sé" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
