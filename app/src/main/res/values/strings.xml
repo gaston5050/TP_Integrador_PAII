@@ -9,7 +9,10 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Encuestas</string>
-    <string name="menu_slideshow">Soporte</string>
+    <string name="menu_sincronizar">Sincronizar</string>
+
+    <!-- sincronizar activity -->
+    <string name="contador_encuesta">Cantidad de encuestas realizadas</string>
 
     <!-- Splash Activity -->
     <string name="autor_code">Desarrollado por Gurpo 1 PAII TUSI FRGP</string>
