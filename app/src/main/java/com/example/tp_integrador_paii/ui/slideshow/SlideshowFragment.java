@@ -23,7 +23,7 @@ public class SlideshowFragment extends Fragment {
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        
+
         binding.textEncuestasRealizadas.setText("Encuestas realizadas 1/10");
         return root;
 }
