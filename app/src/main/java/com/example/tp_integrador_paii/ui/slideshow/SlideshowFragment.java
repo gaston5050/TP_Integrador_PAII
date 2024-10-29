@@ -23,11 +23,10 @@ public class SlideshowFragment extends Fragment {
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        
+        binding.textEncuestasRealizadas.setText("Encuestas realizadas 1/10");
         return root;
-    }
+}
 
     @Override
     public void onDestroyView() {
@@ -35,3 +34,5 @@ public class SlideshowFragment extends Fragment {
         binding = null;
     }
 }
+
+
