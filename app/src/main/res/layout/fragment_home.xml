@@ -19,13 +19,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="202dp"
-        android:layout_height="23dp"
-        android:text="ENCUESTAS REALIZADAS:    /  "
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="337dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
