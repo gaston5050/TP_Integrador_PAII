@@ -1,216 +1,407 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    tools:context=".ui.gallery.GalleryFragment">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Pregunta 1 -->
-        <TextView
-            android:text="¿Está trabajando actualmente?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/radio_si_trabaja"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sí" />
-            <RadioButton
-                android:id="@+id/radio_no_trabaja"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-
-        <!-- Pregunta 2 -->
-        <TextView
-            android:text="Sexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/radio_masculino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Masculino" />
-            <RadioButton
-                android:id="@+id/radio_femenino"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Femenino" />
-            <RadioButton
-                android:id="@+id/radio_otro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Otro" />
-        </RadioGroup>
-
-        <!-- Pregunta 3 -->
-        <TextView
-            android:text="¿Qué nivel de estudios alcanzó?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_nivel_estudios"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/nivel_estudios" />
+            android:orientation="vertical">
 
-        <!-- Pregunta 4 -->
-        <TextView
-            android:text="Edad:"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/text_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 1"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
 
-        <Spinner
-            android:id="@+id/spinner_edad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/rangos_edad" />
+            <TextView
+                android:id="@+id/tv_p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Está trabajando actualmente?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
 
-        <!-- Pregunta 5 -->
-        <TextView
-            android:text="¿Cuántos trabajos tiene?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <RadioGroup
+                android:id="@+id/rg_p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/radio_un_trabajo"
+                <RadioButton
+                    android:id="@+id/rb_si_rgp1_gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Si" />
+
+                <RadioButton
+                    android:id="@+id/rb_no_rgp1_gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p2_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 2"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p2_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Sexo"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p2_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p3_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 3"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p3_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Qué nivel de estudios alcanzó?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p3_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 4"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Edad"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p4_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 5"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Cuantos trabajos tiene?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p5_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 6"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Percibe remuneración por su trabajo?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_p6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RadioButton
+                    android:id="@+id/rb_si_rgp6_gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Si" />
+
+                <RadioButton
+                    android:id="@+id/rb_no_rgp6_gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 7"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Qué tipo de relación contractual tiene con su trabajo?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p7_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 8"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿En qué rubro trabaja?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p8_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 9"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Cuántas horas semanales dedica a esta tarea?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p9_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 10"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¡Hace cuànto tiempo se desempeña en esta tarea?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p10_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 11"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Cuàl es su rango de salario mensual bruto?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p11_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_leyenda_p12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Pregunta 12"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_p12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="¿Cree que su salario es justo en comparación con el de sus colegas de diferentes género que realizan el mismo trabajo?"
+                android:textAlignment="textStart"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/sp_p12_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
+
+            <Button
+                android:id="@+id/btn_finalizar_gallery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1" />
-            <RadioButton
-                android:id="@+id/radio_mas_trabajos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=">1" />
-        </RadioGroup>
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Finalizar" />
 
-        <!-- Pregunta 6 -->
-        <TextView
-            android:text="¿Percibe remuneración por su trabajo?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/radio_si_remuneracion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sí" />
-            <RadioButton
-                android:id="@+id/radio_no_remuneracion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-        </RadioGroup>
-
-        <!-- Pregunta 7 -->
-        <TextView
-            android:text="¿Qué tipo de relación contractual tiene con su trabajo?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_relacion_contractual"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/tipo_relacion_contractual" />
-
-        <!-- Pregunta 8 -->
-        <TextView
-            android:text="¿En qué rubro trabaja?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_rubro_trabajo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/rubros_trabajo" />
-
-        <!-- Pregunta 9 -->
-        <TextView
-            android:text="¿Cuántas horas semanales dedica a esta tarea?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_horas_trabajo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/horas_trabajo" />
-
-        <!-- Pregunta 10 -->
-        <TextView
-            android:text="¿Hace cuánto tiempo se desempeña en esta tarea?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_tiempo_trabajo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/tiempo_trabajo" />
-
-        <!-- Pregunta 11 -->
-        <TextView
-            android:text="¿Cuál es su rango de salario mensual bruto?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner_salario_bruto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/rango_salario" />
-
-        <!-- Pregunta 12 -->
-        <TextView
-            android:text="¿Cree que su salario es justo en comparación con el de sus colegas de diferente género que realizan el mismo trabajo?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/radio_si_justo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sí" />
-            <RadioButton
-                android:id="@+id/radio_no_justo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No" />
-            <RadioButton
-                android:id="@+id/radio_no_sabe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No lo sé" />
-        </RadioGroup>
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
