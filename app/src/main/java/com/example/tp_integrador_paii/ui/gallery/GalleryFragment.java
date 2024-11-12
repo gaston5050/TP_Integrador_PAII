@@ -2,6 +2,7 @@ package com.example.tp_integrador_paii.ui.gallery;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.tp_integrador_paii.MainActivity;
 import com.example.tp_integrador_paii.SignInActivity;
 import com.example.tp_integrador_paii.adapter.AntiguedadSpinnerAdapter;
 import com.example.tp_integrador_paii.adapter.ConformeSpinnerAdapter;
@@ -154,6 +156,9 @@ public class GalleryFragment extends Fragment {
 
         if(DaoHelperEncuesta.insertar(encuesta, getActivity())){
             Toast.makeText(getContext(), "Encuesta guardada", Toast.LENGTH_SHORT).show();
+            Intent volver = new Intent();
+            volver.setClass(getContext(), MainActivity.class);
+            startActivity(volver);
         } else {
             Toast.makeText(getContext(), "Error al guardar encuesta", Toast.LENGTH_SHORT).show();
         }
