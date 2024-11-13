@@ -129,7 +129,7 @@ public class GalleryFragment extends Fragment {
 
     private void guardarEncuesta(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioButton rbNoRGP1) {
         if (rgP1.getCheckedRadioButtonId() == rbNoRGP1.getId()) {
-            Toast.makeText(getContext(), "Encusta descartada", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Encuesta descartada", Toast.LENGTH_SHORT).show();
             limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1);
             return;
         }
@@ -156,6 +156,7 @@ public class GalleryFragment extends Fragment {
 
         if(DaoHelperEncuesta.insertar(encuesta, getActivity())){
             Toast.makeText(getContext(), "Encuesta guardada", Toast.LENGTH_SHORT).show();
+
             Intent volver = new Intent();
             volver.setClass(getContext(), MainActivity.class);
             startActivity(volver);

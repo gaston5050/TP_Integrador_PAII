@@ -27,7 +27,7 @@ public class GalleryViewModel extends ViewModel {
 
     public GalleryViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("Encuestas realizadas.");
         mRadioGroupP1 = new MutableLiveData<>();
         mRbSiRadioGroupP1 = new MutableLiveData<>();
         mRbNoRadioGroupP1 = new MutableLiveData<>();
