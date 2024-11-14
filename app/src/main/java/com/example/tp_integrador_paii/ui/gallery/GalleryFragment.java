@@ -117,20 +117,37 @@ public class GalleryFragment extends Fragment {
             }
         });
 
+        rgP6.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == rbSiRGP6.getId()) {
+                Toast.makeText(getContext(), "Si", Toast.LENGTH_SHORT).show();
+                habilitarPreguntas11y12(spP11, spP12, true);
+            } else {
+                Toast.makeText(getContext(), "No", Toast.LENGTH_SHORT).show();
+                habilitarPreguntas11y12(spP11, spP12, false);
+            }
+        });
+
+
         btnFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarEncuesta(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rbNoRGP1);
+                guardarEncuesta(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rbNoRGP1, rgP6, rbNoRGP6);
             }
         });
 
         return root;
     }
+    private void habilitarPreguntas11y12(Spinner spP11, Spinner spP12, boolean b) {
+        spP11.setEnabled(b);
+        spP12.setEnabled(b);
 
-    private void guardarEncuesta(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioButton rbNoRGP1) {
-        if (rgP1.getCheckedRadioButtonId() == rbNoRGP1.getId()) {
+        spP11.setVisibility(b ? View.VISIBLE : View.GONE);
+        spP12.setVisibility(b ? View.VISIBLE : View.GONE);
+    }
+
+    private void guardarEncuesta(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioButton rbNoRGP1, RadioGroup rgP6, RadioButton rbNoRGP6) {    if (rgP1.getCheckedRadioButtonId() == rbNoRGP1.getId()) {
             Toast.makeText(getContext(), "Encusta descartada", Toast.LENGTH_SHORT).show();
-            limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1);
+            limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1,rgP6);
             return;
         }
 
@@ -145,6 +162,19 @@ public class GalleryFragment extends Fragment {
         encuesta.setId_antiguedad((Antiguedad) spP10.getSelectedItem());
         encuesta.setId_salario((Salario) spP11.getSelectedItem());
         encuesta.setId_conforme((Conforme) spP12.getSelectedItem());
+        encuesta.setId_salario((Salario) spP11.getSelectedItem());
+        encuesta.setId_conforme((Conforme) spP12.getSelectedItem());
+
+        if (rgP6.getCheckedRadioButtonId() == rbNoRGP6.getId()) {
+            spP11.setSelection(spP11.getAdapter().getCount() - 1);
+            spP12.setSelection(spP12.getAdapter().getCount() - 2);
+
+            encuesta.setId_salario((Salario) spP11.getSelectedItem());
+            encuesta.setId_conforme((Conforme) spP12.getSelectedItem());
+        } else {
+            encuesta.setId_salario((Salario) spP11.getSelectedItem());
+            encuesta.setId_conforme((Conforme) spP12.getSelectedItem());
+        }
 
         SharedPreferences sp = getActivity().getSharedPreferences(SignInActivity.SHARED_PREFERENCES_LOGIN_DATA, MODE_PRIVATE);
         String username = sp.getString(SignInActivity.SHARED_PREFERENCES_USERNAME, "desconocido");
@@ -162,10 +192,10 @@ public class GalleryFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Error al guardar encuesta", Toast.LENGTH_SHORT).show();
         }
-        limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1);
+        limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rgP6);
     }
 
-    private void limpiarCampos(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1) {
+    private void limpiarCampos(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioGroup rgP6) {
         spP2.setSelection(0);
         spP3.setSelection(0);
         spP4.setSelection(0);
@@ -177,6 +207,7 @@ public class GalleryFragment extends Fragment {
         spP11.setSelection(0);
         spP12.setSelection(0);
         rgP1.check(rgP1.getChildAt(0).getId());
+        rgP6.check(rgP6.getChildAt(0).getId());
         rgP1.getChildAt(0).requestFocus();
     }
 
