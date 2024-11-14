@@ -95,6 +95,18 @@ public class SplashActivity extends AppCompatActivity {
                 new Encuestador("002", "1234"),
                 this
         );
+        DaoHelperEncuestador.insertar(
+                new Encuestador("003", "1234"),
+                this
+        );
+        DaoHelperEncuestador.insertar(
+                new Encuestador("004", "1234"),
+                this
+        );
+        DaoHelperEncuestador.insertar(
+                new Encuestador("005", "1234"),
+                this
+        );
     }
 
     private void cargarSexos() {
