@@ -77,7 +77,7 @@ public class SlideshowFragment extends Fragment {
             DataEncuestaMainActivity.insertar(encuesta, new DataEncuestaMainActivity.EncuestaCallback() {
                 @Override
                 public void onResponse(Object response) {
-                    textView.setText("Sincronizada correctamente: " + ((Encuesta) response).getId() + ", ");
+
                     DaoHelperEncuesta.eliminar(((Encuesta) response).getId(), getActivity());
                 }
 
