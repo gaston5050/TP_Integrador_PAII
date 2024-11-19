@@ -32,7 +32,7 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
 
         Integer encuestas = contarEncuestas();
-        homeViewModel.setTextValue("ENCUESTAS REALIZADAS: " + encuestas + "/10");
+        homeViewModel.setTextValue("ENCUESTAS REALIZADAS: " + encuestas);
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         return root;
@@ -48,6 +48,6 @@ public class HomeFragment extends Fragment {
     private Integer contarEncuestas() {
         SharedPreferences sp = getActivity().getSharedPreferences(SignInActivity.SHARED_PREFERENCES_LOGIN_DATA, MODE_PRIVATE);
         String username = sp.getString(SignInActivity.SHARED_PREFERENCES_USERNAME, "desconocido");
-        return DaoHelperEncuesta.obtenerPorEncuestador(username,getActivity()).size();
+        return DaoHelperEncuesta.obtenerPorEncuestador(username, getActivity()).size();
     }
 }
