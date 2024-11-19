@@ -176,6 +176,11 @@ public class GalleryFragment extends Fragment {
             encuesta.setId_conforme((Conforme) spP12.getSelectedItem());
         }
 
+        if (encuestaVacia(encuesta)) {
+            Toast.makeText(getContext(), "Encuesta Incompleta", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         SharedPreferences sp = getActivity().getSharedPreferences(SignInActivity.SHARED_PREFERENCES_LOGIN_DATA, MODE_PRIVATE);
         String username = sp.getString(SignInActivity.SHARED_PREFERENCES_USERNAME, "desconocido");
 
@@ -193,6 +198,19 @@ public class GalleryFragment extends Fragment {
             Toast.makeText(getContext(), "Error al guardar encuesta", Toast.LENGTH_SHORT).show();
         }
         limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rgP6);
+    }
+
+    private boolean encuestaVacia(Encuesta encuesta){
+        return encuesta.getId_sexo().getId() == 1 &&
+                encuesta.getId_estudio().getId() == 1 &&
+                encuesta.getId_antiguedad().getId() == 1 &&
+                encuesta.getId_conforme().getId() == 1 &&
+                encuesta.getId_edad().getId()==1 &&
+                encuesta.getId_hora_semanal().getId() == 1 &&
+                encuesta.getId_relacion_contractual().getId() == 1 &&
+                encuesta.getId_rubro().getId() == 1 &&
+                encuesta.getId_salario().getId() == 1 &&
+                encuesta.getId_trabajo().getId() == 1;
     }
 
     private void limpiarCampos(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioGroup rgP6) {
