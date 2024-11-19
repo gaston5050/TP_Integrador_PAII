@@ -2,6 +2,8 @@ package com.example.tp_integrador_paii.ui.gallery;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.tp_integrador_paii.MainActivity;
+import com.example.tp_integrador_paii.R;
 import com.example.tp_integrador_paii.SignInActivity;
 import com.example.tp_integrador_paii.adapter.AntiguedadSpinnerAdapter;
 import com.example.tp_integrador_paii.adapter.ConformeSpinnerAdapter;
@@ -131,12 +134,41 @@ public class GalleryFragment extends Fragment {
         btnFin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarEncuesta(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rbNoRGP1, rgP6, rbNoRGP6);
+
+                AlertDialog.Builder confirmacion = new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.baseline_save_24)
+                        .setTitle("Guardar encuesta")
+                        .setMessage("¿Desea guardar la encuesta?")
+                        .setCancelable(false);
+                confirmacion.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        guardarEncuesta(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rbNoRGP1, rgP6, rbNoRGP6);
+
+                    }
+
+                });
+
+                confirmacion.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getContext(), "Encuesta no guardada", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                });
+
+
+                confirmacion.show();
             }
+
         });
 
         return root;
     }
+
     private void habilitarPreguntas11y12(Spinner spP11, Spinner spP12, boolean b) {
         spP11.setEnabled(b);
         spP12.setEnabled(b);
@@ -145,9 +177,10 @@ public class GalleryFragment extends Fragment {
         spP12.setVisibility(b ? View.VISIBLE : View.GONE);
     }
 
-    private void guardarEncuesta(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioButton rbNoRGP1, RadioGroup rgP6, RadioButton rbNoRGP6) {    if (rgP1.getCheckedRadioButtonId() == rbNoRGP1.getId()) {
-            Toast.makeText(getContext(), "Encusta descartada", Toast.LENGTH_SHORT).show();
-            limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1,rgP6);
+    private void guardarEncuesta(Spinner spP2, Spinner spP3, Spinner spP4, Spinner spP5, Spinner spP7, Spinner spP8, Spinner spP9, Spinner spP10, Spinner spP11, Spinner spP12, RadioGroup rgP1, RadioButton rbNoRGP1, RadioGroup rgP6, RadioButton rbNoRGP6) {
+        if (rgP1.getCheckedRadioButtonId() == rbNoRGP1.getId()) {
+            Toast.makeText(getContext(), "Encuesta descartada", Toast.LENGTH_SHORT).show();
+            limpiarCampos(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rgP6);
             return;
         }
 
@@ -184,7 +217,7 @@ public class GalleryFragment extends Fragment {
 
         encuesta.setId_encuestador(encuestador);
 
-        if(DaoHelperEncuesta.insertar(encuesta, getActivity())){
+        if (DaoHelperEncuesta.insertar(encuesta, getActivity())) {
             Toast.makeText(getContext(), "Encuesta guardada", Toast.LENGTH_SHORT).show();
             Intent volver = new Intent();
             volver.setClass(getContext(), MainActivity.class);
