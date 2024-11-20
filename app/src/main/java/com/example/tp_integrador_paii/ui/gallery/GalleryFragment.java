@@ -135,6 +135,9 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // Deshabilitamos el botón para evitar múltiples clics rápidos
+                btnFin.setEnabled(false);
+
                 AlertDialog.Builder confirmacion = new AlertDialog.Builder(getContext())
                         .setIcon(R.drawable.baseline_save_24)
                         .setTitle("Guardar encuesta")
@@ -147,6 +150,8 @@ public class GalleryFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         guardarEncuesta(spP2, spP3, spP4, spP5, spP7, spP8, spP9, spP10, spP11, spP12, rgP1, rbNoRGP1, rgP6, rbNoRGP6);
 
+                // Volvemos a habilitar el botón después de guardar
+                btnFin.setEnabled(true);
                     }
 
                 });
@@ -155,12 +160,22 @@ public class GalleryFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getContext(), "Encuesta no guardada", Toast.LENGTH_SHORT).show();
-                    }
 
+                // También habilitamos el botón si se cancela
+                btnFin.setEnabled(true);
+
+                    }
 
                 });
 
-
+                confirmacion.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        // Aseguramos que el botón siempre quede habilitado al cerrar el diálogo
+                        btnFin.setEnabled(true);
+                    }
+                });
+                
                 confirmacion.show();
             }
 
