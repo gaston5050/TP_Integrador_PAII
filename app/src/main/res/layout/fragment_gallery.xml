@@ -86,7 +86,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="Sexo"
+                android:text="Genero"
                 android:textAlignment="textStart"
                 android:textSize="20sp" />
 
@@ -327,7 +327,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="¡Hace cuànto tiempo se desempeña en esta tarea?"
+                android:text="¿Hace cuánto tiempo se desempeña en esta tarea?"
                 android:textAlignment="textStart"
                 android:textSize="20sp" />
 
